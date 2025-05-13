@@ -23,7 +23,6 @@ section#login{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
     width: 250px;
     height: 510px;
@@ -32,6 +31,7 @@ section#login{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.438);
     transition: width .3s, height .3s;
     transition-timing-function: ease;
+    transform: translate(-50%, -50%);
 }
 
 section#login > div#imagem {
@@ -57,13 +57,15 @@ div#formulario > p {
     font-size: 0.8em;
 }
 
-form > div.campo{
+form > div.campo {
     background-color: #5f2c82;
     width: 100%;
-    display: block;
+    display: flex; /* <- muda de block para flex */
     height: 40px;
-    border-radius: 5px;
-    margin: 5px 0px
+    border-radius: 8px;
+    margin: 5px 0px;
+    overflow: hidden; /* <- remove bordinhas internas */
+    padding: 0;
 }
 
 div.campo > label{
@@ -71,6 +73,33 @@ div.campo > label{
 
 }
 
+div.campo > span {
+    color: white;
+    font-size: 1.5em;
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5f2c82;
+}
+
+div.campo > input {
+    background-color: #88cecb;
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0 10px;
+    transform: none; /* <- remove deslocamento */
+    box-sizing: border-box;
+}
+
+div.campo > input:focus-within{
+    background-color: white;
+    border: none;
+}
 
 form > input[type=submit]{
     display: block;
